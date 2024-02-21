@@ -1,0 +1,82 @@
+/* MOBILE DEVICE ==================================================================*/
+
+
+@media only screen and (max-width: 768px) {
+    header {
+        width: auto;
+        height: 70px;
+        padding: 10px;
+    }
+    
+    .logoAndTitle {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        font-size: 0.8em;
+    }
+    
+    .logo {
+        width: 20%;
+    }
+    
+    .photo-h1 {
+        font-size: 2em;
+        color: rgb(61, 42, 18);
+        margin-left: 11%;
+        margin-bottom: 4%;
+    }
+
+    .category-row{
+        display: block;
+    }
+
+
+    .cards-2 {
+        display: block;
+        justify-content: space-between;
+        padding: 3%;
+    }
+
+    .intro-card {
+        padding: 45px;
+        width: auto;
+        height: 197px;
+        font-size: 1em;
+        margin-bottom: 11px;
+    }
+
+    .contact-card {
+        padding: 45px;
+        width: auto;
+        height: 197px;
+        font-size: 1em;
+        margin-bottom: 11px;
+    }
+    .body {
+        display: block;
+        justify-content: space-between;
+        width: 100%;
+        margin-right: 7%;
+        margin-left: 10%;
+        align-items: center;
+    }
+    .recipes-home {
+        width: auto;
+        height: auto;
+        margin-left: 2%;
+        margin-right: 2%;
+        transition: 0.5s;
+        cursor: pointer;
+    }
+    .socials-info {
+        width: auto;
+    }
+
+    .wrapper {
+        width: auto;
+    }
+    
+    .wrapper.active {
+        width: auto;
+    }
+}

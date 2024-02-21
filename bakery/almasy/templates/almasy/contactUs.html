@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ALMASY BAKES</title>
+    <!--  === MEDIA RESPOSNIVE RELATED  ===  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  === CSS LINKS and FAVICON===  -->
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon" />
+    <link href="{% static '/css/main.css'  %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/contactus.css'  %}" rel="stylesheet" type="text/css">
+    <!--  === JAVASCRIPT LINKS === -->
+    <script src="https://kit.fontawesome.com/fdcf5cf7b8.js" crossorigin="anonymous"></script>
+    <!-- SCRIPT FOR THE IONICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <Header>
+        <div class="logoAndTitle">
+            <img class="logo" src="{% static 'images/nobackgroundlogo.png' %}" alt="logo">
+            <h2> <a  id="logo-click" href="{% url 'index' %}">ALMASY BAKES</a></h2>
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <nav class="nav-container" class="navbar">
+            <ul class="right-nav">
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'recipes' %}">RECIPES</a></li>
+                <li><a href="{% url 'contactUs' %}">CONTACT US</a></li>
+                <li><a href="{% url 'sharePhotos' %}">SHARE PHOTOS</a></li> 
+                <!-- <li class="toggle"><spam class="bars"></spam></li> -->
+            </ul>
+        </nav> 
+
+    </Header>
+
+    <section class="section3"></section>
+
+    <div>
+        <h1 class="connect-us">Connect With Us</h1>
+    </div>
+
+    <div class="cards-2">
+        <div class="intro-card">
+            <h1 class="intro-h1">About</h1>
+            <p>Hii there future bakers, this page is for you to pick your favorite recipes and make your home smells like them. Don't forget share your opnions with us.</p>
+            <p>Make this place feel like home and become your comfort zone :) </p>
+            <button onclick="location.href=`{% url 'sharePhotos' %}`" id="about-btn" type="button">Share With Us</button>
+        </div>
+            <!-- === CONTACT SECTION === -->
+        <div class="contact-card">
+            <h1> Contact Us</h1>
+            <p class="contact-p"> You Can Reach Us Through</p>
+            <p class="contact-p"> Email: <a href="mailto:almasybakes@gmail.com">almasybakes@gmail.com</a></p>
+            <p class="contact-p"> Phone Number: +123 456 789 0</P></p>
+            <button onclick="location.href='mailto:almasybakes@gmail.com';" id="contact-btn" type="button">Contact Us</button>
+        </div>
+    </div>
+
+    <section class="section4"></section>
+
+    <div class="socials-info">
+        <h1 class="intro-h1">Socials</h1>
+        <p>Don't forget to follow us</p>
+        <a href="https://www.instagram.com/almasybakes/">
+        <ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="mailto:almasybakes@gmail.com">
+            <ion-icon name="mail-outline"></ion-icon></a>
+        <a href="https://www.youtube.com/channel/UCxPoUoJrz3ODuVak8UoAo3g">
+            <ion-icon name="logo-youtube"></ion-icon></a>
+    </div>
+
+</body>
+
+
+{% block script %}
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+
+</html>

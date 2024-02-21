@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ALMASY BAKES</title>
+    <!--  === MEDIA RESPOSNIVE RELATED  ===  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  === CSS LINKS and FAVICON===  -->
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon" />
+    <link href="{% static '/css/main.css'  %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/home.css'  %}" rel="stylesheet" type="text/css">
+    <!--  === JAVASCRIPT LINKS === -->
+    <script src="https://kit.fontawesome.com/fdcf5cf7b8.js" crossorigin="anonymous"></script>
+    <!-- SCRIPT FOR THE IONICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- === HEADER AND NAVBAR STUFF=== -->
+    <Header>
+        <div class="logoAndTitle">
+            <img class="logo" src="{% static 'images/nobackgroundlogo.png' %}" alt="logo">
+            <h2> <a  id="logo-click" href="{% url 'index' %}">ALMASY BAKES</a></h2>
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <nav class="nav-container" class="navbar">
+            <ul class="right-nav">
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'recipes' %}">RECIPES</a></li>
+                <li><a href="{% url 'contactUs' %}">CONTACT US</a></li>
+                <li><a href="{% url 'sharePhotos' %}">SHARE PHOTOS</a></li>
+            </ul>
+        </nav> 
+    </Header>
+
+    <!-- === BACKGROUND PHOTO (SECTION1) AND LOGIN/REGISTER PART === -->
+    <!-- EDITED SECTION WITH NO LOGIN/REGISTER-->
+    <section>
+        <div class="body">
+            <h1 class="photo-h1"> Bake With Almasy </h1>
+            {% if user.is_authenticated %}
+            <li class="profile_user">
+                <a href="{% url 'profile' user_id=user.id %}"><strong class="profile-name"> Hi {{ user.username }}</strong></a>
+            </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <li class="logout_user">
+                    <a href="{% url 'logout' %}">Log Out</a>
+                </li>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- === CHOSSING THE CATEGORY PART === -->
+    <div> 
+        <h1 class="choose-cat">Choose The Category You Want</h1>
+        <div class="category-row">
+            <div class="category-col">
+                <img id="category-img" src="https://noevalleybakery.com/cdn/shop/products/Box_12_pastries_71fbf7cf-6dd9-40c4-b48f-ba34d70adc5a_2048x.jpg?v=1600972788">
+                <h3>PASTRY</h3>
+                <button onclick="location.href=`{% url 'recipes' %}`" id="p-button" type="button">Find Your Recipe</button>
+            </div>
+            <div class="category-col">
+                <img id="category-img" src="https://www.mybakingaddiction.com/wp-content/uploads/2011/10/lr-0939.jpg">
+                <h3>CAKES</h3>
+                <button onclick="location.href=`{% url 'recipes' %}`" id="c-button" type="button">Find Your Recipe</button>
+            </div>
+            <div class="category-col">
+                <img id="category-img" src="https://img.freepik.com/premium-photo/chocolate-chip-cookies-stack-black-background_237189-558.jpg">
+                <h3>COOKIES</h3>
+                <button onclick="location.href=`{% url 'recipes' %}`" id="co-button" type="button">Find Your Recipe</button>
+            </div>
+            <div class="category-col">
+                <img id="category-img" src="https://www.tastingtable.com/img/gallery/the-best-boozy-milkshakes-in-the-us/intro-1656000021.jpg">
+                <h3>DRINKS</h3>
+                <button onclick="location.href=`{% url 'recipes' %}`" id="d-button" type="button">Find Your Recipe</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="section2"></section>
+
+    <!-- === ABOUT SECTION === -->  <!-- === CONTACT SECTION === -->
+    <div class="cards-2">
+        <div class="intro-card">
+            <h1 class="intro-h1">About</h1>
+            <p>Hii there future bakers, this page is for you to pick your favorite recipes and make your home smells like them. Don't forget share your opnions with us.</p>
+            <p>Make this place feel like home and become your comfort zone :) </p>
+            <button onclick="location.href=`{% url 'sharePhotos' %}`" id="about-btn" type="button">Share With Us</button>
+        </div>
+            <!-- === CONTACT SECTION === -->
+        <div class="contact-card">
+            <h1> Contact Us</h1>
+            <p class="contact-p"> You Can Reach Us Through</p>
+            <p class="contact-p"> Email:<a href="mailto:almasybakes@gmail.com>"> almasybakes@gmail.com </a></p>
+            <p class="contact-p"> Phone Number: +123 456 789 0</P></p>
+            <button onclick="location.href=`{% url 'contactUs' %}`" id="contact-btn" type="button">Contact Us</button>
+        </div>
+    </div>
+
+    <section class="section3"></section>
+
+    <!-- === RECIPES === -->
+    <div class="recipes-home">
+        <img  id="recipes-home-img" src="{% static '/images/recipe.png' %}" onclick="location.href=`{% url 'recipes' %}`">
+    </div>
+
+    <section class="section3"></section>
+    
+    <!-- === SOCIALS === -->
+    <div class="socials-info">
+        <h1 class="intro-h1">Socials</h1>
+        <p>Don't forget to follow us</p>
+        <a href="https://www.instagram.com/almasybakes/">
+        <ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="mailto:almasybakes@gmail.com">
+            <ion-icon name="mail-outline"></ion-icon></a>
+        <a href="https://www.youtube.com/channel/UCxPoUoJrz3ODuVak8UoAo3g">
+            <ion-icon name="logo-youtube"></ion-icon></a>
+    </div>
+</body>
+
+<!-- === LOGIN/REGISTER SCRIPT === -->
+{% block script %}
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+</html>

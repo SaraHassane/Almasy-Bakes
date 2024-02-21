@@ -1,0 +1,841 @@
+*{
+    margin:0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    background: rgba(61, 40, 0, 0.6);
+    width:100%;
+    height: 100px;
+    padding: 10px 90px;
+    box-sizing: border-box;
+    border-bottom: 0.5px solid #fff;
+    padding-right: 2%;
+    padding-left: 2%;
+    z-index: 1100;
+}
+
+section {
+    width: 100%;
+    height: 88vh;
+    background: url(https://physicsworld.com/wp-content/uploads/2019/07/PWAug19Mandal_baking-ingredients_HERO.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content:end;
+}
+
+.logoAndTitle {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.logo{
+    width: 100px;
+}
+
+#logo-click{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-container {
+    list-style: none;
+}
+
+.nav-container li{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+.nav-container  ul li a{
+    color: black;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+}
+
+.nav-container  ul li a:hover{
+    background: rgb(131, 193, 255);
+    border-radius: 6px;
+
+}
+
+
+/* TOGGLE BUTTON MEDIA CODE ====================================================================================*/
+.toggle-btn {
+    display: none;
+    cursor: pointer;
+}
+
+/* TOGGLE BUTTON MEDIA CODE */
+@media only screen and (max-width: 768px) {
+    .toggle-btn {
+        display: block;
+    }
+
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 10%;
+        top: 70px;
+        right: 0;
+        background: rgba(61, 40, 0, 0.6);
+        width: 100%;
+    }
+
+    .nav-container.active {
+        display: flex;
+    }
+
+    .nav-container ul {
+        padding-left: 30%;
+    }
+    
+    .nav-container ul li {
+        display: block;
+        padding: 10px;
+    }
+
+    .nav-container ul li a {
+        display: block;
+        width: 50%;
+        text-align: center;
+        padding: 10px;
+        background: rgb(131, 193, 255);
+        border-radius: 6px;
+    }
+}
+
+/* section text */
+.photo-h1{
+    font-size: 40px;
+    font-style: italic;
+    color: rgb(61, 42, 18);
+}
+
+.profile_user a{
+    text-decoration: none;
+    color: rgb(61, 42, 18);
+    font-size: 30px;
+    font-style: italic;
+}
+
+.profile_user a:hover{
+    text-decoration: underline;
+}
+
+li {
+    list-style-type: none;
+}
+
+.logout_user a{
+    text-decoration: none;
+    color: rgb(61, 42, 18);
+    font-size: 25px;
+    font-style: italic;
+    background: rgb(131, 193, 255);
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.logout_user a:hover{
+    text-decoration: underline;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 7%;
+    margin-left: 10%;
+    align-items: center;
+}
+
+
+/* THE LOGOUT AND REGISTER WRAPPER =====================================================================================*/
+.wrapper {
+    width: 400px;
+    height: 390px;
+    background: transparent;
+    border: 1px solid rgb(224, 213, 181);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px rgb(65, 62, 52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+}
+
+.wrapper.active{
+    height: 500px;
+    width: 400px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper.active .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+    width: 80%;
+}
+
+.form-box p{
+    color: rgb(65, 62, 52);
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: rgb(65, 62, 52);
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgb(65, 62, 52);
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY();
+    font-size: 1em;
+    color: rgb(65, 62, 52);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: rgb(65, 62, 52);
+    font: 600;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: rgb(65, 62, 52);
+    line-height: 55px;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: rgb(65, 62, 52);
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: rgb(65, 62, 52);
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: rgb(65, 62, 52);
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+
+}
+
+.login-btn{
+    width: 100%;
+    height: 45px;
+    background: rgb(65, 62, 52);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+}
+
+.register{
+    font-size: .9em;
+    color: rgb(65, 62, 52);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.register p a{
+    color: rgb(65, 62, 52);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register p a:hover{
+    text-decoration: underline;
+}
+
+.login-link{
+    cursor: pointer;
+}
+
+.register-link{
+    cursor: pointer;
+}
+
+
+.error-messages{
+    font-size: .9em;
+    color: rgb(65, 62, 52);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+
+/* chooosing categories ==================================================================================================== */
+
+.choose-cat{
+    flex-basis: 10%;
+    background: rgb(136, 126, 93);
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding: 20px 12px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    border-radius: 1.5%;
+}
+
+.category-row{
+    margin-top: 5%;
+    display: flex;
+    padding-left: 4%;
+    padding-right: 4%;
+    justify-content: space-between;
+    color: rgb(65, 62, 52);
+    cursor: pointer;
+}
+
+.category-col{
+    flex-basis: 20%;
+    background: rgb(136, 126, 93);
+    border-radius: 5px;
+    margin-bottom: 8%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    transition: 0.5s;
+}
+
+.category-col:hover{
+    box-shadow: 0 0 20px 0px rgb(131, 193, 255);
+}
+
+#category-img{
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    margin-bottom: 4%;
+}
+
+.section2{
+    height: 30vh;
+}
+
+.intro-card{
+    background: rgb(136, 126, 93);
+    padding: 53px;
+    width: 500px;
+    height: 300px;
+    color: rgb(234, 232, 228);
+    font-size: 25px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.intro-card:hover{
+    box-shadow: 0 0 20px 0px rgb(131, 193, 255);
+}
+
+.section3{
+    height: 30vh;
+}
+
+.section4{
+    height: 20vh;
+}
+
+.contact-card{
+    padding: 53px;
+    background: rgb(136, 126, 93);
+    width: 500px;
+    height: 300px;
+    font-size: 25px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.contact-card:hover{
+    box-shadow: 0 0 20px 0px rgb(131, 193, 255);
+}
+
+.contact-card a{
+    margin-top: 3%;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.contact-card a:hover{
+    margin-top: 3%;
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+
+.cards-2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 3%;
+}
+
+.socials-info{
+    background: rgb(136, 126, 93);
+    padding: 40px;
+    width: 94.4%;
+  
+    color: rgb(234, 232, 228);
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+}
+
+.recipes-home{
+    padding: 30px;
+    padding-bottom: 30px;
+    background: rgb(136, 126, 93);
+    width: 600px;
+    height: 300px;
+    font-size: 25px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 25%;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#recipes-home-img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.recipes-home:hover{
+    box-shadow: 0 0 20px 0px rgb(131, 193, 255);
+}
+
+.socials-info{
+   margin-bottom: 1%;
+   
+}
+
+.socials-info a{
+    color: rgb(255, 255, 255);
+}
+
+.connect-us{
+    flex-basis: 10%;
+    background: rgb(136, 126, 93);
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding: 20px 12px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+}
+
+/* SECTION OF BUTTONS FOR INDEX AND HOME CATEGORY============================================================================== */
+
+#p-button{
+    background: rgb(128, 181, 237);
+    margin: 3%;
+    text-align: center;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+#c-button{
+    background: rgb(128, 181, 237);
+    margin: 3%;
+    text-align: center;
+    padding: 10px 30px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+#co-button{
+    background: rgb(128, 181, 237);
+    margin: 3%;
+    text-align: center;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+#d-button{
+    background: rgb(128, 181, 237);
+    margin: 3%;
+    text-align: center;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* SECTION OF BUTTONS FOR INDEX AND HOME SHARE/CONTACT */
+
+#about-btn{
+    background: rgb(128, 181, 237);
+    margin: 3%;
+    text-align: center;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 7%;
+}
+
+#contact-btn{
+    background: rgb(128, 181, 237);
+    margin: 3%;
+    text-align: center;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 25%;
+}
+
+/* SECTION OF RECIPES CATEGORIES PASTRY */
+
+
+#recipes-cat{
+    flex-basis: 10%;
+    background: rgb(136, 126, 93);
+    width: 10%;
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    border-radius: 3%;
+    text-align: center;
+    padding: 10px 12px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+}
+
+
+.cinnamonroll img{
+    width: auto;
+    height: auto;
+    max-width: 15%;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+.beehive img{
+    width: auto;
+    height: auto;
+    max-width: 15%;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+.bread img{
+    width: 100%;
+    height: 100%;
+    max-width: 15%;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+.crossiant img{
+    width: 100%;
+    height: 100%;
+    max-width: 15%;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+
+/* SECTION OF RECIPES CATEGORIES PASTRIES */
+
+#cr-recipe{
+    display: none;
+}
+
+#bh-recipe{
+    display: none;
+}
+
+#bd-recipe{
+    display: none;
+}
+
+#ct-recipe{
+    display: none;
+}
+
+/* SECTION OF RECIPES CATEGORIES CAKES */
+
+#vc-recipe{
+    display: none;
+}
+
+#cc-recipe{
+    display: none;
+}
+
+#ch-recipe{
+    display: none;
+}
+
+#rd-recipe{
+    display: none;
+}
+
+/* SECTION OF RECIPES CATEGORIES COOKIES */
+
+#ccc-recipe{
+    display: none;
+}
+
+#bc-recipe{
+    display: none;
+}
+
+#sc-recipe{
+    display: none;
+}
+
+#lz-recipe{
+    display: none;
+}
+
+/* SECTION OF RECIPES CATEGORIES DRINKS */
+
+#vm-recipe{
+    display: none;
+}
+
+#sm-recipe{
+    display: none;
+}
+
+#str-recipe{
+    display: none;
+}
+
+#im-recipe{
+    display: none;
+}
+
+/* SECTION OF SHARING PAGES AND ALL OTHER DEATILS OF THAT PAGE ==================================================================*/
+
+.login-post{
+    background: rgb(136, 126, 93);
+    width: 11%;
+    margin: 1%;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#share-photos{
+    flex-basis: 10%;
+    background: rgb(136, 126, 93);
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding: 20px 12px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+}
+
+#share-h1{
+    background: rgb(136, 126, 93);
+    width: 11%;
+    margin: 1%;
+    text-align: center;
+    padding: 10px 20px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+}
+
+#text-place{
+    resize: none;
+    margin: 1%;
+    outline-color: rgb(136, 126, 93);
+}
+
+#share-btn{
+    background: rgb(148, 200, 255);
+    width: 11%;
+    margin: 1%;
+    text-align: center;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    outline: none;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+#share-label{
+    display: block;
+    width: 10%;
+    background: rgb(136, 126, 93);
+    margin: 1%;
+    text-align: center;
+    padding: 10px 10px;
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.share-input{
+    display: none;
+}
+
+.share-photos img{
+    width: auto;
+    height: auto;
+    max-width: 15%;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+.shared-posts{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.post{
+    border: 3px solid rgb(136, 126, 93);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 85%;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 10px;
+    padding-bottom: 1%;
+}
+
+.username-share{
+    font-size: 120%;
+    background-color: rgb(136, 126, 93);
+    color: rgb(234, 232, 228);
+    font-style: italic;
+    text-align: justify;
+}
+
+.content-share{
+    font-size: 120%;
+    font-style: italic;
+    padding-bottom: 10px;
+    margin-left: 1%;
+    padding-bottom: 1%;
+    margin-top: 1%;
+}
+
+.date-share{
+    font-size: 70%;
+    font-style: italic;
+    padding-bottom: 10px;
+    margin-left: 88%;
+}

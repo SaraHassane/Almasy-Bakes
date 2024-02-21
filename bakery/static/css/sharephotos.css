@@ -1,0 +1,75 @@
+/* MOBILE DEVICE ==================================================================*/
+
+
+@media only screen and (max-width: 768px) {
+    header {
+        width: auto;
+        height: 70px;
+        padding: 10px;
+    }
+    
+    .logoAndTitle {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        font-size: 0.8em;
+    }
+    
+    .logo {
+        width: 20%;
+    }
+    
+    #text-place {
+        columns: initial; 
+        margin: 1%;
+        width: 97%;
+    }
+
+    #share-photos {  
+        width: 75%;
+        border-radius: 1%;
+
+    }
+
+    #share-h1 {
+        width: auto;
+        margin: 1%;
+        border-radius: 1%;
+        margin-bottom: 2%;
+    }
+
+    #share-btn {
+        width: auto;
+    }
+
+    .post {
+        box-sizing: border-box;
+        margin: 2%;
+    }
+
+    .date-share {
+        font-size: 0.7em;
+        margin-top: 1%;
+        margin-left: auto;
+    }
+
+    .login-post {
+        width: auto;
+        font-size: 1.5em;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .body {
+        display: block;
+        justify-content: space-between;
+        width: 100%;
+        margin-right: 7%;
+        margin-left: 10%;
+        align-items: center;
+    }
+
+    .socials-info {
+        width: auto;
+    }
+}

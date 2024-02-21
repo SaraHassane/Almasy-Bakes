@@ -1,0 +1,574 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ALMASY BAKES</title>
+     <!--  === MEDIA RESPOSNIVE RELATED  ===  -->
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  === CSS LINKS and FAVICON===  -->
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon" />
+    <link href="{% static '/css/main.css'  %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/recipes.css'  %}" rel="stylesheet" type="text/css">
+    <!--  === JAVASCRIPT LINKS === -->
+    <script src="https://kit.fontawesome.com/fdcf5cf7b8.js" crossorigin="anonymous"></script>
+    <!-- SCRIPT FOR THE IONICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <Header>
+        <div class="logoAndTitle">
+            <img class="logo" src="{% static 'images/nobackgroundlogo.png' %}" alt="logo">
+            <h2> <a  id="logo-click" href="{% url 'index' %}">ALMASY BAKES</a></h2>
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <nav class="nav-container" class="navbar">
+            <ul class="right-nav">
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'recipes' %}">RECIPES</a></li>
+                <li><a href="{% url 'contactUs' %}">CONTACT US</a></li>
+                <li><a href="{% url 'sharePhotos' %}">SHARE PHOTOS</a></li> 
+                <!-- <li class="toggle"><spam class="bars"></spam></li> -->
+            </ul>
+        </nav> 
+     
+    </Header>
+
+    <section class="section2"></section>
+
+    <!-- CHOOSE CAT SECTION-->
+
+    <div> 
+        <h1 class="choose-cat">Choose The Category You Want</h1>
+        <div class="category-row">
+            <div class="category-col">
+                <img id="category-img" src="https://noevalleybakery.com/cdn/shop/products/Box_12_pastries_71fbf7cf-6dd9-40c4-b48f-ba34d70adc5a_2048x.jpg?v=1600972788">
+                <h3>PASTRY</h3>
+                <button onclick="scrollToPastriesDiv()" id="p-button" type="button">See More</button>
+            </div>
+            <div class="category-col">
+                <img id="category-img" src="https://www.mybakingaddiction.com/wp-content/uploads/2011/10/lr-0939.jpg">
+                <h3>CAKES</h3>
+                <button onclick="scrollToCakesDiv()" id="c-button" type="button">See More</button>
+            </div>
+            <div class="category-col">
+                <img id="category-img" src="https://img.freepik.com/premium-photo/chocolate-chip-cookies-stack-black-background_237189-558.jpg">
+                <h3>COOKIES</h3>
+                <button onclick="scrollToCookiesDiv()" id="co-button" type="button">See More</button>
+            </div>
+            <div class="category-col">
+                <img id="category-img" src="https://www.tastingtable.com/img/gallery/the-best-boozy-milkshakes-in-the-us/intro-1656000021.jpg">
+                <h3>DRINKS</h3>
+                <button onclick="scrollToDrinksDiv()" id="d-button" type="button">See More</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="section4"></section>
+ 
+    <!-- PASTRY RECIPES SECTION-->
+
+    <div class="pastries-div">
+        <h1 id="recipes-cat">Pastries</h1>
+
+        <div class="category-row">
+            <div class="category-col">
+                <img  class="cinnamonroll" id="category-img" src="https://www.liveeatlearn.com/wp-content/uploads/2015/05/vegan-cinnamon-roll-recipe-14-914x1024.jpg">
+                <h3>Cinnamon Rolls</h3>
+                <button onclick="showCR()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="cr-recipe">
+                    <h4>
+                        Cinnamon roll dough
+                    </br>
+                        1 1/4 a cup of milk
+                    </br>
+                        1 tbsp yeast
+                    </br>
+                        2 tbsp sugar
+                    </br>
+                        1/2 a cup of oil
+                    </br>
+                        3 cups of flour
+                    </br>
+                        a pinch of salt 
+                    </br>
+                        FILLING
+                    </br>
+                        100 grams of butter
+                    </br>
+                        2 tbsp cinnamon powder
+                    </br>
+                        1 cup of sugar
+                    </h4>
+                    <button onclick="hideCR()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div id="BH" class="category-col">
+                <img class="beehive" id="category-img" src="https://magltk.com/wp-content/uploads/2019/01/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9-%D8%B9%D9%85%D9%84-%D8%AE%D9%84%D9%8A%D8%A9-%D8%A7%D9%84%D9%86%D8%AD%D9%84-%D8%A8%D8%A7%D9%84%D8%AC%D8%A8%D9%86%D8%A9-1.jpg">
+                <h3>Beehive</h3>
+                <button onclick="showBH()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="bh-recipe">
+                    <h4>
+                        BEEHIVE
+                    </br>
+                        1/2 a cup of milk
+                    </br>
+                        1/2 a cup of water
+                    </br>
+                        1/3 a cup of oil
+                    </br>
+                        1/4 a cup of sugar
+                    </br>
+                        1 egg white
+                    </br>
+                        2 tbsp of yogurt 
+                    </br>
+                        2 tbsp of instant yeast
+                    </br>
+                        1/2 tsp baking powder 
+                    </br>
+                        1 tsp salt
+                    </br>
+                        4 cups of flour
+                    </br>
+                        FILLING
+                    </br>
+                        Add any cream cheese you preferas the filling
+                    </br>
+                        After baking add basic sugar syrup on top.
+                    </h4>
+                    <button onclick="hideBH()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div id="BD" class="category-col">
+                <img class="bread" id="category-img" src="https://www.thekitchenmagpie.com/wp-content/uploads/images/2019/02/crostini4.jpg">
+                <h3>Bread</h3>
+                <button onclick="showBD()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="bd-recipe">
+                    <h4>
+                        1 ½ tablespoons instant dry yeast
+                    </br>
+                        2 cups warm water
+                    </br>
+                        1 ½ teaspoons salt
+                    </br>
+                        4 ½ - 5 cups all purpose flour
+                    </br>
+                        1 large egg, beaten
+                    </h4>
+                    <button onclick="hideBD()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div id="CT" class="category-col">
+                <img  class="croissant" id="category-img" src="https://static.vecteezy.com/system/resources/previews/008/621/902/large_2x/fresh-croissants-bread-on-marble-table-free-photo.jpg">
+                <h3>Croissant</h3>
+                <button onclick="showCT()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="ct-recipe">
+                    <h4>
+                        3 ½ cup all-purpose flour
+                    </br>
+                        1 cup water, room temperature
+                    </br>
+                        ½ cup 2% milk, room temperature
+                    </br>
+                        5 Tbsp sugar
+                    </br>
+                        2 1/4 tsp instant dry yeast
+                    </br>
+                        1 ¼ tsp salt
+                    </br>
+                        2 Tbsp unsalted butter, at room temperature
+                    </br>
+                        1 ¼ cup unsalted butter, at room temperature adding it inside the Croissant dough
+                    </h4>
+                    <button onclick="hideCT()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section4"></section>
+
+    <!-- CAKES RECIPES SECTION-->
+
+    <div class="cakes-div">
+        <h1 id="recipes-cat">Cakes</h1>
+
+        <div class="category-row">
+            <div class="category-col">
+                <img  class="vanilla-c" id="category-img" src="https://bakerbynature.com/wp-content/uploads/2022/04/Golden-Vanilla-Cake-with-Vanilla-Frosting0-19-500x500.jpg">
+                <h3>Vanilla Cake</h3>
+                <button onclick="showVC()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="vc-recipe">
+                    <h4>
+                        1 ½ cup all-purpose flour
+                    </br>
+                        2 Tbsp baking powder
+                    </br>
+                        1 cup Sugar
+                    </br>
+                        3/4 cu oil
+                    </br>
+                        1 1/2 cups milk
+                    </br>
+                        1 tbsp vanilla extract
+                    </br>
+                        Add your strawberry buttercream frosting and your choice of fruits to design it
+                    </h4>
+                    <button onclick="hideVC()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="choclate-c" id="category-img" src="https://www.browneyedbaker.com/wp-content/uploads/2021/05/chocolate-cake-15-square.jpg">
+                <h3>Choclate Cake</h3>
+                <button onclick="showCC()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="cc-recipe">
+                    <h4>
+                        3 cups all-purpose flour
+                    </br>
+                        2 cups granulated sugar
+                    </br>
+                        ⅓ cup cocoa powder
+                    </br>
+                        2 tsp baking soda
+                    </br>
+                        1 tsp salt
+                    </br>
+                        2 cups cold water
+                    </br>
+                        ¾ cup vegetable oil
+                    </br>
+                        2 tbsp white vinegar
+                    </br>
+                    Add your choclate frosting and design it
+                    </h4>
+                    <button onclick="hideCC()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="cheesecake" id="category-img" src="https://liliebakery.fr/wp-content/uploads/2023/06/Recette-cheesecake-framboise-Lilie-Bakery-500x500.jpg">
+                <h3>Cheesecake</h3>
+                <button onclick="showCH()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="ch-recipe">
+                    <h4>
+                        The Biscuits
+                    </br>
+                        12 Digestive Biscuits
+                    </br>
+                        3 Tbsp Butter
+                    </br>
+                        The Filling
+                    </br>
+                        200 gm Cream Cheese
+                    </br>
+                        2 Tbsp Powdered Sugar
+                    </br>
+                        1/4 Cup Cold Whipping Cream
+                    </br>
+                        The Top sauce
+                    </br>
+                        200 gm Raspberry 
+                    </br>
+                        2 Tbsp Sugar
+                    </br>
+                        Lastly you could add more raspberries to desgin your cheesecake
+                    </h4>
+                    <button onclick="hideCH()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="red-c" id="category-img" src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2004/1/23/1/ss1d26_red_velvet_cake.jpg.rend.hgtvcom.1280.1280.suffix/1371584132020.jpeg">
+                <h3>Red Valvet Cake</h3>
+                <button onclick="showRD()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="rd-recipe">
+                    <h4>
+                        2 1/2 cups all purpose flour
+                    </br>
+                        1 1/3 cup sugar
+                    </br> 
+                        2 1/4 tsp baking powder
+                    </br>
+                        1/4 tsp soda
+                    </br>
+                        3/4 tsp salt
+                    </br>
+                        2 eggs
+                    </br>
+                        1 tsp vanilla
+                    </br>
+                        2/3 cup vegetable oil
+                    </br>
+                        3/4 cup milk plus 2 tsp vinegar + 1 tbsp red food color
+                    </br>
+                        1/4 cup boiling water
+                    </br>
+                        4 tbsp cocoa powder
+                    </br>
+                        1/4 cup milk to soak
+                    </br>
+                        Adding your frosting inside each layer and design it the way you would like
+                    </h4>
+                    <button onclick="hideRD()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section4"></section>
+
+    <!-- COOKIES RECIPES SECTION-->
+
+    <div cookies-div>
+        <h1 id="recipes-cat">Cookies</h1>
+
+        <div class="category-row">
+            <div class="category-col">
+                <img  class="vanilla-c" id="category-img" src="https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2021-11/crunchy-whole-grain-chocolate-chip-cookies_1021.jpg?itok=3jSxHk65">
+                <h3>Choclate Chip Cookies</h3>
+                <button onclick="showCCC()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="ccc-recipe">
+                    <h4>
+                        ½ cup sugar
+                    </br>
+                        ¾ cup brown sugar
+                    </br>
+                        1 teaspoon salt
+                    </br>
+                        ½ cup butter, melted
+                    </br>
+                        1 egg
+                    </br>
+                        1 teaspoon vanilla extract
+                    </br>
+                        1¼ cups all-purpose flour
+                    </br>
+                        ½ teaspoon baking soda
+                    </br>
+                        113g dark chocolate chunks (or your preference)
+                    </h4>
+                    <button onclick="hideCCC()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="choclate-c" id="category-img" src="https://www.livewellbakeoften.com/wp-content/uploads/2019/05/Brownie-Cookies-6.jpg">
+                <h3>Brownie Cookies</h3>
+                <button onclick="showBC()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="bc-recipe">
+                    <h4>
+                        225g Dark chocolate 
+                    </br>
+                        4 tablespoons Butter
+                    </br>
+                        1/4 cup White sugar
+                    </br>
+                        1/2 cup Brown sugar
+                    </br>
+                        2 Eggs
+                    </br>
+                        1 teaspoon Vanilla extract
+                    </br>
+                        1/4 teaspoon Salt
+                    </br>
+                        1/3 cup All-purpose flour
+                    </br>
+                        1/4 teaspoon Baking powder 
+                    </br>
+                        1 tablespoon Cocoa powder
+                    </br>
+                        1 teaspoon Instant coffee 
+                    </h4>
+                    <button onclick="hideBC()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="cheesecake" id="category-img" src="https://www.realsimple.com/thmb/K3Zuezj4Lmkkfc53evmDJmeRNX8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/smores-cups-f6d2a9a9c4c547f99144e2cefd0ad0f8.jpg">
+                <h3>Smores Cookie Cups</h3>
+                <button onclick="showSC()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="sc-recipe">
+                    <h4>
+                        1-1/3 cups All Purpose Flour
+                    </br>
+                        1-1/4 cup of Crushed Graham/Digestive Crackers
+                    </br>
+                        1/2 tsp Salt
+                    </br>
+                        1/2 tsp Baking Soda
+                    </br>
+                        1 Egg
+                    </br>
+                        1 tsp Vanilla Extract
+                    </br>
+                        1/2 cup of Unsalted Butter softened at room temperature
+                    </br>
+                        1/3 cup of Granulated Sugar
+                    </br>
+                        1/3 of a Cup of Brown Sugar
+                    </br>
+                        1/4 cup of Grated Chocolate, optional
+                    </br>
+                        Mini Marshmallows
+                    </br>
+                        Little Squares/round Hershey Chocolate
+                    </h4>
+                    <button onclick="hideSC()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="red-c" id="category-img" src="https://www.theflavorbender.com/wp-content/uploads/2020/12/Linzer-4323-2.jpg">
+                <h3>Linzer Cookies</h3>
+                <button onclick="showLZ()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="lz-recipe">
+                    <h4>
+                        1 cup unsalted butter
+                    </br>
+                        2/3 cup sugar
+                    </br>
+                        2 eggs
+                    </br>
+                        1 tsp vanilla extract
+                    </br>
+                        1 cup ground almonds, toasted or plain
+                    </br>
+                        3 cups flour
+                    </br>
+                        1 tsp baking powder
+                    </br>
+                        1/2 tsp salt
+                    </br>
+                        1/2 tsp ground cardamom
+                    </br>
+                        Strawberry Cardamom Jam
+                    </br>
+                        14 oz fresh or frozen strawberries
+                    </br>
+                        1/2 cup sugar
+                    </br>
+                        1 tbsp water
+                    </br>
+                        1 tbsp lemon juice
+                    </br>
+                        1/2 tsp ground cardamom
+                    </br>
+                        For Dusting
+                    </br>
+                        powdered sugar
+                    </h4>
+                    <button onclick="hideLZ()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section4"></section>
+
+    <!-- DRINKS RECIPES SECTION-->
+
+    <div class="drinks-div">
+        <h1 id="recipes-cat">Drinks</h1>
+
+        <div class="category-row">
+            <div class="category-col">
+                <img  class="vanilla-m" id="category-img" src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/03/BobbyFlay_BasicVanillaMilkshake_H.jpg.rend.hgtvcom.791.594.suffix/1612401890664.jpeg">
+                <h3>Vanilla Milkshake</h3>
+                <button onclick="showVM()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="vm-recipe">
+                    <h4>
+                        1.5 cups vanilla ice cream
+                    </br>
+                        1 tsp vanila extract
+                    </br>
+                        2/3 cup milk
+                    </br>
+                        3 ice cubes
+                    </br>
+                        Whipped cream 
+                    </h4>
+                    <button onclick="hideVM()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="carmel-m" id="category-img" src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/2/27/0/KC2008_Salted-Caramel-Milkshake_s4x3.jpg.rend.hgtvcom.791.594.suffix/1551310524475.jpeg">
+                <h3>Salted Caramel Milkshake</h3>
+                <button onclick="showSM()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="sm-recipe">
+                    <h4>
+                        1/3 cup Milk
+                        3 tablespoon Caramel Syrup
+                    </br>
+                        2 tablespoon Condensed Milk (optional)
+                    </br>
+                        2-3 scoops Vanilla Ice Cream
+                    </br>
+                        Whip Cream - (optional)
+                    </br>
+                        Caramel Drizzle
+                    </h4>
+                    <button onclick="hideSM()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="strawberry-m" id="category-img" src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/12/20/1/CCTIA206H_Strawberry-Cheesecake-Milkshake_s4x3.jpg.rend.hgtvcom.791.594.suffix/1452198326522.jpeg">
+                <h3>Strawberry Cheesecake Milkshake</h3>
+                <button onclick="showSTR()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="str-recipe">
+                    <h4>
+                        4 scoops Ice Cream
+                    </br>
+                        2 scoops cream cheese
+                    </br>
+                        3/4 cup milk
+                    </br>
+                        1 cup frozen strawberries
+                    </br>
+                        1/4 cup Crushed Biscuits
+                    </br>
+                        Whipping cream
+                    </h4>
+                    <button onclick="hideSTR()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+            <div class="category-col">
+                <img class="ice-m" id="category-img" src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/4/12/1/FNK_Vietnamese-Iced-Coffee-Milkshake_s4x3.jpg.rend.hgtvcom.791.594.suffix/1460470482855.jpeg">
+                <h3>Iced Coffee Milkshake</h3>
+                <button onclick="showIM()" id="p-button" id="show" type="button">Recipe</button>
+                <div id="im-recipe">
+                    <h4>
+                        3/4 cup milk, 180ml
+                    </br>
+                        2 tablespoons instant coffee granules
+                    </br>
+                        2 tablespoons drinking cocoa powder
+                    </br>
+                        4 - 5 scoops vanilla ice cream
+                    </h4>
+                    <button onclick="hideIM()" id="p-button" id="hide" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section4"></section>
+
+    <!-- === SOCIALS === -->
+    <div class="socials-info">
+        <h1 class="intro-h1">Socials</h1>
+        <p>Don't forget to follow us</p>
+        <a href="https://www.instagram.com/almasybakes/">
+        <ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="mailto:almasybakes@gmail.com">
+            <ion-icon name="mail-outline"></ion-icon></a>
+        <a href="https://www.youtube.com/channel/UCxPoUoJrz3ODuVak8UoAo3g">
+            <ion-icon name="logo-youtube"></ion-icon></a>
+    </div>
+
+</body>
+
+<!-- === ONCLICK CATEGORIES SCRIPT === -->
+{% block script %}
+    <script src="{% static 'js/script.js' %}"> </script>
+{% endblock %}
+</html>

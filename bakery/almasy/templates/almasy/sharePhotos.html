@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>ALMASY BAKES</title>
+    <!--  === MEDIA RESPOSNIVE RELATED  ===  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  === CSS LINKS and FAVICON===  -->
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon" />
+    <link href="{% static '/css/main.css'  %}" rel="stylesheet" type="text/css">
+    <link href="{% static '/css/sharephotos.css'  %}" rel="stylesheet" type="text/css">
+    <!--  === JAVASCRIPT LINKS === -->
+    <script src="https://kit.fontawesome.com/fdcf5cf7b8.js" crossorigin="anonymous"></script>
+    <!-- SCRIPT FOR THE IONICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+
+<body>
+    <Header>
+        <div class="logoAndTitle">
+            <img class="logo" src="{% static 'images/nobackgroundlogo.png' %}" alt="logo">
+            <h2> <a  id="logo-click" href="{% url 'index' %}">ALMASY BAKES</a></h2>
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <nav class="nav-container" class="navbar">
+            <ul class="right-nav">
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'recipes' %}">RECIPES</a></li>
+                <li><a href="{% url 'contactUs' %}">CONTACT US</a></li>
+                <li><a href="{% url 'sharePhotos' %}">SHARE PHOTOS</a></li> 
+            </ul>
+        </nav> 
+    </Header>
+
+    <section class="section2"></section>
+    <!--  === SHARE POST SECTION===  -->
+    <div>
+        <h1 id="share-photos">Share Your Feedback</h1>
+        <div>
+            <h1 id="share-h1">Start a Post</h1>
+            {% if user.is_authenticated %}
+            <div class="new-post mx-5">
+                <form action="{% url 'sharePost' %}" method="post">
+                    {% csrf_token %}
+                    <textarea name="content" rows="4" cols="140" id="text-place"></textarea>
+                    <br/>
+                    <input type="submit" value="Share" id="share-btn">
+                </form>
+            </div>
+            {% else %}
+            <div>
+                <input onclick="redirectToLogin();" class="login-post" type="submit" value="Login to Post">
+            </div>
+            {% endif %}
+
+            <!-- DISPLAYING the posts that has been shared by users-->
+            <div class="shared-posts">
+                {% for post in sharedPosts %}
+                <div class="row post">
+                    <h5 class="username-share" id="posts-style">@{{ post.user }} <p class="date-share" id="posts-style">{{ post.date }}</p></h5> 
+                    <h6 class="content-share" id="posts-style" id="content_{{ post.id }}">{{ post.content }}</h6>
+                </div>
+                {% endfor %}
+            </div>    
+        </div>
+    </div>
+
+    <section class="section4"></section>
+
+    <!-- === SOCIALS === -->
+    <div class="socials-info">
+            <h1 class="intro-h1">Socials</h1>
+            <p>Don't forget to follow us</p>
+            <a href="https://www.instagram.com/almasybakes/">
+            <ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="mailto:almasybakes@gmail.com">
+                <ion-icon name="mail-outline"></ion-icon></a>
+            <a href="https://www.youtube.com/channel/UCxPoUoJrz3ODuVak8UoAo3g">
+                <ion-icon name="logo-youtube"></ion-icon></a>
+    </div>
+</body>
+
+
+{% block script %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+
+</html>
+
+
+
