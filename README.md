@@ -1,5 +1,8 @@
-# Website files Explained in Details
-As mentioned, my project is built using two Django modules, and my app is called almasy. JavaScript is used all over my website to give users an easy time navigating. My web application is also built to be fully mobile responsive and adapt to different devices.
+# Almasy-Bakes 
+This website is a bakery recipes website where users can find some recipes, navigate to the social media platform of the website, contact the creator, and Login/Register to share their feedback and opinions with others. 
+
+## Website files Explained in Details
+My project is built using two Django modules, and my app is called almasy. JavaScript is used all over my website to give users an easy time navigating. My web application is also built to be fully mobile responsive and adapt to different devices.
 
 #### Files and Directories
 - CAPSTONE: is the folder that my project is in.
