@@ -1,5 +1,5 @@
 # Almasy-Bakes 
-This website is a bakery recipes website where users can find some recipes, navigate to the social media platform of the website, contact the creator, and Login/Register to share their feedback and opinions with others. 
+The website is a bakery recipes platform allowing users to access recipes, connect via social media, contact the creator, and engage through Login/Register features for sharing feedback. It utilizes Django admin for backend management, enabling control over user and content management. Skills showcased include hosting web applications with Python, JavaScript, HTML, and CSS; employing database models for data representation; and creating mobile-responsive designs for diverse display adaptability.
 
 ## Website files Explained in Details
 My project is built using two Django modules, and my app is called almasy. JavaScript is used all over my website to give users an easy time navigating. My web application is also built to be fully mobile responsive and adapt to different devices.
